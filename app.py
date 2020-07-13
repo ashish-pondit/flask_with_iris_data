@@ -23,11 +23,9 @@ def index():
         
         #print('yes it happend but why')
         model=pickle.load(open('model.pkl','rb'))
-        print('printing model')
-        print(model)
         values = np.array([w,x,y,z]).reshape(1,4)
         pred = model.predict(values)
-        #pred=[1]
+        
         if pred==[1]:
             result = "Iris-setosa"
         elif pred==[2]:
