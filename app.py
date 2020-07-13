@@ -22,7 +22,7 @@ def index():
         z = request.form['petal-width']
         
         #print('yes it happend but why')
-        model=pickle.load(open('model.pkl','rb'))
+        model=pickle.load(open('lrmodel.pkl','rb'))
         values = np.array([w,x,y,z]).reshape(1,4)
         pred = model.predict(values)
         
