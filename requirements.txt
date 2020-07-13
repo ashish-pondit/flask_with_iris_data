@@ -1,7 +1,3 @@
-# This file may be used to create an environment using:
-# $ conda create --name <env> --file <this file>
-# platform: win-64
-_py-xgboost-mutex=2.0=cpu_0
 alabaster=0.7.12=py_0
 analytics-python=1.2.9=pypi_0
 argh=0.26.2=py37_1001
