@@ -8,7 +8,7 @@ Created on Mon Jul 13 16:20:00 2020
 from flask import Flask,render_template,request,url_for,redirect
 import numpy as np
 from sklearn.externals import joblib
-
+import pickle
 
 app = Flask(__name__)
 
@@ -22,7 +22,7 @@ def index():
         z = request.form['petal-width']
         
         #print('yes it happend but why')
-        model=joblib.load('svc_model.pkl')
+        model=pickle.load(open('model.pkl','rb'))
         values = np.array([w,x,y,z]).reshape(1,4)
         pred = model.predict(values)
         
@@ -34,8 +34,12 @@ def index():
             result = "Iris-virginica"
         else:
             result = "Something went wrong"
+        try:
+            return render_template('index.html',prediction="The predictied class of Iris flower is {}".format(result))
+        except:
+            return 'There was an error'
         
-        return render_template('index.html',prediction="The predictied class of Iris flower is {}".format(result))
+        
         
     else:
         return render_template('index.html')
