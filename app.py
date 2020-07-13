@@ -7,7 +7,6 @@ Created on Mon Jul 13 16:20:00 2020
 
 from flask import Flask,render_template,request,url_for,redirect
 import numpy as np
-from sklearn.externals import joblib
 import pickle
 
 app = Flask(__name__)
