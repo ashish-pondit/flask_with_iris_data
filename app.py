@@ -8,6 +8,7 @@ Created on Mon Jul 13 16:20:00 2020
 from flask import Flask,render_template,request,url_for,redirect
 import numpy as np
 import pickle
+from sklearn import svm
 
 app = Flask(__name__)
 
@@ -25,8 +26,8 @@ def index():
         print('printing model')
         print(model)
         values = np.array([w,x,y,z]).reshape(1,4)
-        #pred = model.predict(values)
-        pred=[1]
+        pred = model.predict(values)
+        #pred=[1]
         if pred==[1]:
             result = "Iris-setosa"
         elif pred==[2]:
